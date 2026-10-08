@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+javafx {
+    version = "21.0.2" // Matches JDK 21
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    // This is the main class we will create
+    mainClass = 'org.example.CustomerManagerApp'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
